@@ -16,8 +16,6 @@ pipeline {
             steps {
                 script {
                     bat 'mvn test'
-
-
                 }
             }
         }
