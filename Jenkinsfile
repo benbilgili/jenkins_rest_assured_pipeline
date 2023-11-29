@@ -7,7 +7,7 @@ pipeline {
                 script {
                     echo "Current directory: ${pwd()}"
                     bat 'dir'
-                    bat 'json-server --watch data.json --port 3002'
+                    bat 'start json-server --watch data.json --port 3002'
                 }
             }
         }
