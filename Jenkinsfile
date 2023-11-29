@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout and Install Dependencies') {
+        stage('Checkout and Run API Server') {
             steps {
                 script {
                     echo "Current directory: ${pwd()}"
                     bat 'dir'
-                    // bat 'cd jenkins_rest_assured_pipeline'
+                    bat 'json-server --watch data.json --port 3002'
                 }
             }
         }
