@@ -36,7 +36,7 @@ public class TestClass1 {
                 .get("/14")
                 .then()
                 .log().body()
-                .body("fullName", equalTo("Hannah Anderson"))
+                .body("fullName", equalTo("Ben Johnson"))
                 .body("email", equalTo("hannah.anderson@example.com"))
                 .body("job", equalTo("UX/UI Designer"))
                 .body("dob", equalTo("09/23/1989"));
