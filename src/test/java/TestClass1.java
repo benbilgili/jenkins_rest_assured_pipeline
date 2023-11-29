@@ -74,11 +74,11 @@ public class TestClass1 {
                 .contentType(ContentType.JSON)
                 .body(patchData.toString())
                 .when()
-                .patch("/31")
+                .patch("/14")
                 .then()
                 .log().body()
                 .body("fullName", equalTo(name))
-                .body("job", equalTo("Teacher"));
+                .body("job", equalTo("UX/UI Designer"));
     }
 
 //    @Test
