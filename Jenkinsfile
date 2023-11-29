@@ -7,7 +7,7 @@ pipeline {
                 script {
                     echo "Current directory: ${pwd()}"
                     bat 'dir'
-                    bat 'cd jenkins_rest_assured_pipeline'
+                    // bat 'cd jenkins_rest_assured_pipeline'
                 }
             }
         }
