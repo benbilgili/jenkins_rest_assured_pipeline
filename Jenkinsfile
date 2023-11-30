@@ -7,7 +7,7 @@ pipeline {
                 script {
                     echo "Current directory: ${pwd()}"
                     bat 'dir'
-                    bat 'start json-server --watch data.json --port 3002'
+                    // bat 'start json-server --watch data.json --port 3002'
                     sleep time: 2, unit: 'SECONDS'
                 }
             }
@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     bat 'mvn test'
-                    
+
                 }
             }
         }
