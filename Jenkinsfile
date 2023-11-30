@@ -8,6 +8,7 @@ pipeline {
                     echo "Current directory: ${pwd()}"
                     bat 'dir'
                     bat 'start json-server --watch data.json --port 3002'
+                    sleep time: 5, unit: 'SECONDS'
                 }
             }
         }
