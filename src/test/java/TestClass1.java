@@ -14,7 +14,7 @@ public class TestClass1 {
 
     @BeforeClass
     public static void createRequestSpecification() {
-        RestAssured.baseURI = "https://2803-2a00-23c5-d19c-ed01-48e3-38f8-f9a2-4519.ngrok-free.app/people";
+        RestAssured.baseURI = "https://239e-2a00-23c5-d19c-ed01-48e3-38f8-f9a2-4519.ngrok-free.app/people";
     }
 
     @Test                                                      // Given | When | Then - legible syntax
