@@ -7,8 +7,8 @@ pipeline {
                 script {
                     echo "Current directory: ${pwd()}"
                     bat 'dir'
-                    bat 'start json-server --watch data.json --port 3002'
-                    sleep time: 2, unit: 'SECONDS'
+                    // bat 'start json-server --watch data.json --port 3002'
+                    // sleep time: 2, unit: 'SECONDS'
                 }
             }
         }
@@ -16,7 +16,7 @@ pipeline {
         stage('Run RestAssured Tests') {
             steps {
                 script {
-                    
+
                     bat 'mvn test'
                 }
             }
