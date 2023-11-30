@@ -16,8 +16,8 @@ pipeline {
         stage('Run RestAssured Tests') {
             steps {
                 script {
-                    bat 'mvn test'
                     
+                    bat 'mvn test'
                 }
             }
         }
