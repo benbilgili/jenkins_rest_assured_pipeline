@@ -2,6 +2,16 @@ pipeline {
     agent any
 
     stages {
+        stage('Initialize Workspace') {
+            steps {
+                // Clean up workspace
+                deleteDir()
+                
+                // Checkout Git repository
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/benbilgili/jenkins_rest_assured_pipeline']]])
+            }
+        }
+
         stage('Checkout and Run API Server') {
             steps {
                 script {
@@ -17,7 +27,6 @@ pipeline {
             steps {
                 script {
                     bat 'mvn test'
-                    
                 }
             }
         }
