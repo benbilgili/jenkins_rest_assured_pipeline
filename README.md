@@ -10,5 +10,6 @@ RUN JENKINS: <br>
 RUN NGROK: <br>
 * Nav to: C:\Users\BenScott\AppData\Local\ngrok> <br>
 * Run: ngrok http http://localhost:8080 <br>
+* Add the new ngrok forwarding address into GH webbook and update.
 
 <h5>Push a change to this repo to see the pipeline in action</h5> <br>
