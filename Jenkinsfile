@@ -8,7 +8,7 @@ pipeline {
                     echo "Current directory: ${pwd()}"
                     sh 'ls -l'
                     sh 'json-server --watch data.json --port 3002 &'
-                    sleep time: 10, unit: 'SECONDS' // Adjust sleep time as needed
+                    sleep time: 20, unit: 'SECONDS' // Adjust sleep time as needed
                 }
             }
         }
@@ -16,7 +16,13 @@ pipeline {
         stage('Run RestAssured Tests') {
             steps {
                 script {
-                    sh 'mvn test'
+                    try {
+                        sh 'mvn test'
+                    } catch (Exception e) {
+                        echo "Failed to run RestAssured tests: ${e.message}"
+                        currentBuild.result = 'FAILURE'
+                        error 'Failed to run RestAssured tests'
+                    }
                 }
             }
         }
