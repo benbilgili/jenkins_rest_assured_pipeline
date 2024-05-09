@@ -26,6 +26,7 @@ public class TestClass1 {
                 .then()
                 .log().body();
 //                .body("$", hasSize(16)); // makes use of the Hamcrest assertions
+
     }
 
 
