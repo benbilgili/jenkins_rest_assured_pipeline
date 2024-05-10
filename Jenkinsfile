@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         nodejs 'Node'
-        mvn 'Mvn'
+        maven 'Mvn'
     }
 
     stages {
