@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'Node'
+        
+    }
+
     stages {
         stage('Checkout and Run API Server') {
             steps {
