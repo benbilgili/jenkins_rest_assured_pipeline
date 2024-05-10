@@ -7,7 +7,8 @@ pipeline {
                 script {
                     echo "Current directory: ${pwd()}"
                     sh 'ls -l'
-                    sh 'json-server --watch data.json --port 3002 &'
+                    sh 'npm install json-server'
+                    sh 'npx json-server --watch data.json --port 3002 h&'
                     sleep time: 10, unit: 'SECONDS' // Adjust sleep time as needed
                 }
             }
