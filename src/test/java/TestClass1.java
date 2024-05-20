@@ -25,8 +25,6 @@ public class TestClass1 {
                 .get()
                 .then()
                 .log().body();
-//                .body("$", hasSize(16)); // makes use of the Hamcrest assertions
-
     }
 
 
@@ -37,6 +35,7 @@ public class TestClass1 {
                 .get("/14")
                 .then()
                 .log().body()
+                // confirm the data is as expected
                 .body("fullName", equalTo("Ben Johnson"))
                 .body("email", equalTo("hannah.anderson@example.com"))
                 .body("job", equalTo("UX/UI Designer"))
@@ -47,8 +46,6 @@ public class TestClass1 {
     @Test
     public void postData() {
         JSONObject postData = new JSONObject();
-//        String id = "31";
-//        postData.put("id", id);
         String name = "John Smith";
         postData.put("fullName", name);
         postData.put("email", "js@hotmail.com");
@@ -62,6 +59,7 @@ public class TestClass1 {
                 .post()
                 .then()
                 .log().body()
+                // confirm the full name returned in the reponse matches the name we've used written
                 .body("fullName", equalTo(name));
     }
 
@@ -75,11 +73,11 @@ public class TestClass1 {
                 .contentType(ContentType.JSON)
                 .body(patchData.toString())
                 .when()
-                .patch("/14")
+                .patch("/22")
                 .then()
                 .log().body()
                 .body("fullName", equalTo(name))
-                .body("job", equalTo("UX/UI Designer"));
+                .body("job", equalTo("Test Engineer"));
     }
 
 //    @Test
@@ -88,9 +86,10 @@ public class TestClass1 {
 //                .when()
 //                .delete("/31")
 //                .then()
-//                .statusCode(200); // very useful took to check status code
-//    }
+//                // confirm success via status code  
+//                .statusCode(200); 
 
+//    }
 
 
 

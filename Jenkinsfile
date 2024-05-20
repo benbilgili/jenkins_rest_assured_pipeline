@@ -6,6 +6,10 @@ pipeline {
         maven 'Mvn'
     }
 
+    environment {
+        JSON_SERVER_PORT = '3002'
+    }
+
     stages {
         stage('Checkout and Run API Server') {
             steps {
@@ -13,8 +17,8 @@ pipeline {
                     echo "Current directory: ${pwd()}"
                     sh 'ls -l'
                     sh 'npm install json-server'
-                    sh 'npx json-server --watch data.json --port 3002 h&'
-                    sleep time: 10, unit: 'SECONDS' // Adjust sleep time as needed
+                    sh "npx json-server --watch data.json --port ${JSON_SERVER_PORT} &"
+                    sleep time: 10, unit: 'SECONDS' 
                 }
             }
         }
@@ -25,6 +29,19 @@ pipeline {
                     sh 'mvn test'
                 }
             }
+        }
+    }
+
+    post {
+        always {
+            echo 'Cleaning up background processes'
+            sh "pkill -f 'json-server --watch'"
+        }
+        success {
+            echo 'Tests passed successfully.'
+        }
+        failure {
+            echo 'Tests failed.'
         }
     }
 }
