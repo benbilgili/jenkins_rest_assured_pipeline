@@ -30,6 +30,14 @@ pipeline {
                 }
             }
         }
+
+        stage('Echo nothing') {
+            steps {
+                script {
+                    echo 'nothing'
+                }
+            }
+        }
     }
 
     post {
